@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "nodenext",
+    "target": "esnext",
+    "strict": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // ตั้งค่าให้ TypeScript แยก source กับไฟล์ build
+    "rootDir": "./src",   // ไฟล์ .ts ของคุณอยู่ใน src/
+    "outDir": "./dist",   // ไฟล์ .js หลัง build จะอยู่ใน dist/
+
+    "jsx": "react-jsx",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true
+  },
+  "include": ["src/**/*"]
+}
+

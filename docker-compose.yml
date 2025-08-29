@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    command: npx ts-node src/index.ts
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    ports:
+      - "4000:4000"
+      - "514:514/udp"
+    depends_on:
+      - db
+    env_file:
+      - .env
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:4000
+    depends_on:
+      - backend

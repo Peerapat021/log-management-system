@@ -1,0 +1,16 @@
+# Node modules
+node_modules/
+**/node_modules/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Build / dist
+dist/
+build/
+
+# Docker volumes (optional)
+*.sql
