@@ -12,10 +12,12 @@ services:
       - "5432:5432"
 
   backend:
-    build: ./backend
-    command: npx ts-node src/index.ts
-    volumes:
-      - ./backend:/app
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: node dist/index.js 
+    # volumes:
+    #   - ./backend:/app
     working_dir: /app
     ports:
       - "4000:4000"
@@ -26,7 +28,9 @@ services:
       - .env
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     environment:

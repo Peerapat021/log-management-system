@@ -9,11 +9,11 @@ COPY package*.json ./
 # install deps
 RUN npm install
 
-# copy source
+# copy source code
 COPY . .
 
-# build (ถ้าใช้ ts)
+# build TypeScript เป็น JavaScript
 RUN npm run build
 
-# run app
-CMD ["npm", "run", "start"]
+# run compiled JS
+CMD ["node", "dist/index.js"]
