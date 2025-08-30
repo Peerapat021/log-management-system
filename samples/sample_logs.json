@@ -1,0 +1,29 @@
+[
+  {
+    "timestamp": "2025-08-30T09:00:00Z",
+    "source": "firewall",
+    "event_type": "connection_attempt",
+    "username": null,
+    "ip": "192.168.1.100",
+    "action": "blocked",
+    "tenant": "corpA"
+  },
+  {
+    "timestamp": "2025-08-30T09:05:00Z",
+    "app": "webapp",
+    "type": "login",
+    "user": "alice",
+    "client_ip": "10.0.0.5",
+    "message": "login success",
+    "tenant": "corpA"
+  },
+  {
+    "timestamp": "2025-08-30T09:10:00Z",
+    "source": "os",
+    "event_type": "error",
+    "username": "root",
+    "ip": "127.0.0.1",
+    "action": "disk full",
+    "tenant": "corpB"
+  }
+]
